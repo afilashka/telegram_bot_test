@@ -1,7 +1,7 @@
 import telebot
-import settings
+import setting
 
-bot = telebot.TeleBot(settings.TOKEN)
+bot = telebot.TeleBot(setting.TOKEN)
 
 
 @bot.message_handler(content_types=['text'])
