@@ -18,7 +18,7 @@ def start(message):
 def get_name(message): #получаем имя, запрашиваем id
     global name;
     name = message.text;
-    bot.send_message(message.from_user.id, name + ', введи пожалуйста id пользователя для которого хотите получить информацию');
+    bot.send_message(message.from_user.id, 'Привет ' + name + '! я могу дать информацию о пользователе вконтакте по числовому id  , введи пожалуйста id пользователя для которого хочешь получить информацию');
     bot.register_next_step_handler(message, get_id);
 
 def get_id(message):
@@ -41,7 +41,7 @@ def get_one_more_id(message):
     global yes_no;
     yes_no = message.text;
     if yes_no == 'да' or yes_no == 'Да':
-        bot.send_message(message.from_user.id, name + ', введи пожалуйста id пользователя для которого хотите получить информацию');
+        bot.send_message(message.from_user.id, name + ', введи пожалуйста id пользователя для которого хочешь получить информацию');
         bot.register_next_step_handler(message, get_id);
     else:
         bot.send_message(message.from_user.id, 'До встречи ' + name + '!');

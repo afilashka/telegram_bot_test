@@ -21,6 +21,10 @@ def get_profiles(user_id, access_token):
     return a
 
 
+
+
+
+
 #ids = 15631
 
 #users_d = get_profiles(ids, setting.token_vk_api)
