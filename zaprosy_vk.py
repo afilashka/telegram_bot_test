@@ -21,9 +21,9 @@ def get_profiles(user_id, access_token):
     return a
 
 
-ids = 15631
+#ids = 15631
 
-users_d = get_profiles(ids, setting.token_vk_api)
+#users_d = get_profiles(ids, setting.token_vk_api)
 
-print(users_d)
+#print(users_d)
 #df.to_csv('file1.csv', encoding='utf-8')
