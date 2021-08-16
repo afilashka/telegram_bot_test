@@ -10,7 +10,7 @@ def get_profiles(user_id, access_token):
     fields = ['first_name', 'last_name', 'sex', 'city', 'bdate', 'education']
     fd = ','.join(fields)
 
-    json_response = requests.get(url.format(ids, fd, access_token)).json()
+    json_response = requests.get(url.format(user_id, fd, access_token)).json()
 
     if json_response.get('error'):
         #print(json_response.get('error'))
@@ -21,9 +21,9 @@ def get_profiles(user_id, access_token):
     return a
 
 
-#ids = 15631
+ids = 15631
 
-#users_d = get_profiles(ids, setting.token_vk_api)
+users_d = get_profiles(ids, setting.token_vk_api)
 
-#print(users_d)
+print(users_d)
 #df.to_csv('file1.csv', encoding='utf-8')
