@@ -4,7 +4,7 @@ import setting
 bot = telebot.TeleBot(setting.TOKEN)
 name = '';
 surname = '';
-age = 0;
+vk_id = 0;
 
 @bot.message_handler(content_types=['text'])
 def start(message):
@@ -23,12 +23,13 @@ def get_name(message): #получаем имя, запрашиваем id
 def get_id(message):
     global vk_id;
     vk_id = message.text;
-    while vk_id == 0: #проверяем ввели значение
-        try:
-             vk_id = int(message.text) #проверяем, что введен корректно
-        except Exception:
-             bot.send_message(message.from_user.id, 'Цифрами, пожалуйста');
-    bot.send_message(message.from_user.id, 'вы запрашиваете данные об id = ' + str(vk_id) + '?')
+    try:
+        vk_id = int(message.text) #проверяем, что введен корректно
+    except Exception:
+        bot.send_message(message.from_user.id, 'вводить надо цифровое значение, попробуй еще раз ввести, ты сможешь!');
+        bot.register_next_step_handler(message, get_id);
+    else:
+        bot.send_message(message.from_user.id, 'вы запрашиваете данные об id = ' + str(vk_id) + '?')
 
 
 
