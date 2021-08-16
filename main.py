@@ -18,7 +18,7 @@ def start(message):
 def get_name(message): #получаем имя, запрашиваем id
     global name;
     name = message.text;
-    bot.send_message(message.from_user.id, name + ', введите пожалуйста id пользователя для которого хотите получить информацию');
+    bot.send_message(message.from_user.id, name + ', введи пожалуйста id пользователя для которого хотите получить информацию');
     bot.register_next_step_handler(message, get_id);
 
 def get_id(message):
@@ -33,7 +33,7 @@ def get_id(message):
     else:
         user_info = zaprosy_vk.get_profiles(vk_id, setting.token_vk_api);
         bot.send_message(message.from_user.id, user_info);
-        bot.send_message(message.from_user.id, 'повторить - напиши да');
+        bot.send_message(message.from_user.id, 'повторить? - напиши да');
         bot.register_next_step_handler(message, get_one_more_id);
 
 
@@ -41,10 +41,10 @@ def get_one_more_id(message):
     global yes_no;
     yes_no = message.text;
     if yes_no == 'да' or yes_no == 'Да':
-        bot.send_message(message.from_user.id, name + ', введите пожалуйста id пользователя для которого хотите получить информацию');
+        bot.send_message(message.from_user.id, name + ', введи пожалуйста id пользователя для которого хотите получить информацию');
         bot.register_next_step_handler(message, get_id);
     else:
-        bot.send_message(message.from_user.id, 'До встречи ' + name);
+        bot.send_message(message.from_user.id, 'До встречи ' + name + '!');
 
 
 bot.polling(none_stop=True, interval=0)
