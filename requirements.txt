@@ -1,3 +1,5 @@
 pytelegrambotapi
 requests
 pandas
+numpy
+time
